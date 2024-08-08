@@ -1,36 +1,39 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../images/Railbus-Logo.png';
 
-const AdminNavbar = ({ toggleProfile }) => {
+const AdminNavbar = ({ nav }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('role');
+        localStorage.removeItem('token');
         navigate('/');
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light p-4 shadow-sm w-100">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light p-2 shadow-sm w-100">
             <div className="container-fluid">
-            <ul className="navbar-nav me-auto">
-                <li className="nav-item">
-                    <img src="/path/to/logo.png" alt="Logo" className="rounded-circle ms-2 p-3" width="50" height="50" />
-                </li>
+                <ul className="navbar-nav me-auto">
+                    <li className="nav-item">
+                        <Link className="navbar-brand mr-5" onClick={() => nav("dash")}>
+                            <img src={logo} alt="Logo" className="rounded-circle ms-2 p-2" width="120" height="120" />
+                        </Link>
+                    </li>
                 </ul>
-                <Link className="navbar-brand mr-5" to="/">Railway System</Link>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminnavbarNav" aria-controls="adminnavbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbarNav" aria-controls="adminNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <div className="collapse navbar-collapse" id="adminnavbarNav">
+                <div className="collapse navbar-collapse" id="adminNavbarNav">
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="#" onClick={toggleProfile}>Profile</Link>
+                            <Link className="nav-link" onClick={() => nav("dash")}>Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Trains</Link>
+                            <Link className="nav-link" onClick={() => nav("booking")}>Bookings</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/abookings">Bookings</Link>
+                            <Link className="nav-link" onClick={() => nav("profile")}>Profile</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto">

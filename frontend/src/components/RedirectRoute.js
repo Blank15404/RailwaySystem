@@ -5,9 +5,9 @@ const RedirectRoute = ({ children }) => {
   const role = localStorage.getItem('role');
 
   if (role === 'admin') {
-    return <Navigate to="/admin-dashboard" />;
+    return <Navigate to="/adminhome" />;
   } else if (role === 'user') {
-    return <Navigate to="/user-dashboard" />;
+    return <Navigate to="/userhome" />;
   }
 
   return children;

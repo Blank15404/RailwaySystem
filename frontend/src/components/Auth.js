@@ -35,11 +35,11 @@ function Auth() {
             if (role === 'admin') {
                 localStorage.setItem('role', "admin");
                 localStorage.setItem("user_id", loginDetails.userId);
-                navigate('/admin-dashboard');
+                navigate('/adminhome');
             } else {
                 localStorage.setItem('role', "user");
                 localStorage.setItem("user_id", loginDetails.userId);
-                navigate('/user-dashboard');
+                navigate('/userhome');
             }
         } catch (error) {
             console.error('Login failed', error);
@@ -57,6 +57,15 @@ function Auth() {
         try {
             await axios.post('http://localhost:5000/register', formData);
             alert('Registration successful');
+            setFormData({
+                userId: '',
+                password: '',
+                confirmPassword: '',
+                phoneNumber: '',
+                email: '',
+                name: '',
+                role: 'user'
+            })
             setIsLogin(true);
         } catch (error) {
             console.error('Registration failed', error);
@@ -69,7 +78,7 @@ function Auth() {
             <div className="justify-content-center w-100">
                 <div className="col-md-4">
                     <div className="card bg-primary-subtle text-info-emphasis bg-opacity shadow-sm rounded-3 m-5 mx-4">
-                        <div className="card-body pt-2 p-4 mt-2">
+                        <div className={`card-body pt-2 p-4 mt-2 ${isLogin ? '' : 'overflow-auto'}`} style={isLogin ? {} : { maxHeight: '80vh' }}>
                             <h2 className="card-title text-center text-info-emphasis mb-1">{isLogin ? 'Login' : 'Register'}</h2>
                             {isLogin ? (
                                 <form onSubmit={handleLoginSubmit} className="bg-white p-4 rounded shadow-sm">

@@ -52,7 +52,7 @@ const UserDashboard = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5" style={{width:7000}}>
       <Card className="mb-4 mt-4">
       <h1 className="text-center m-3">User Dashboard</h1>
         <Card.Header>

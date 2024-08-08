@@ -1,33 +1,36 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../images/Railbus-Logo.png';
 
-const UserNavbar = ({ toggleProfile }) => {
+const UserNavbar = ({ nav }) => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
         localStorage.removeItem('role');
+        localStorage.removeItem('token');
         navigate('/');
     };
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light p-4 shadow-sm w-100">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light p-2 shadow-sm w-100">
             <div className="container-fluid">
                 <ul className="navbar-nav me-auto">
                     <li className="nav-item">
-                        <img src="/path/to/logo.png" alt="Logo" className="rounded-circle ms-2 p-3" width="50" height="50" />
+                        <Link className="navbar-brand mr-5" onClick={() => nav("dash")}>
+                            <img src={logo} alt="Logo" className="rounded-circle ms-2 p-2" width="110" height="110" />
+                        </Link>
                     </li>
                 </ul>
-                <Link className="navbar-brand mr-5" to="/">Railway System</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userNavbarNav" aria-controls="userNavbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="userNavbarNav">
                     <ul className="navbar-nav me-auto">
                         <li className="nav-item">
-                            <Link className="nav-link" to="#" onClick={toggleProfile}>Profile</Link>
+                            <Link className="nav-link" onClick={() => nav("profile")}>Profile</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/">Home</Link>
+                            <Link className="nav-link" onClick={() => nav("dash")}>Home</Link>
                         </li>
                     </ul>
                     <ul className="navbar-nav ms-auto">

@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Offcanvas, Card } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
-const UserProfileSidebar = ({ isAdmin, toggleProfile }) => {
+const UserProfile = () => {
   const [user, setUser] = useState({});
   const [bookings, setBookings] = useState([]);
-  const [show, setShow] = useState(false);
-  const [fade, setFade] = useState(false);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -35,25 +33,8 @@ const UserProfileSidebar = ({ isAdmin, toggleProfile }) => {
     };
 
     fetchUserProfile();
-    if (!isAdmin) {
-      fetchUserBookings();
-    }
-
-    handleShow(); // Show the offcanvas when the component mounts
-  }, [isAdmin]);
-
-  const handleShow = () => {
-    setShow(true);
-    setTimeout(() => setFade(true), 10); // Delay to allow the show state to take effect
-  };
-
-  const handleClose = () => {
-    setFade(false);
-    setTimeout(() => {
-      setShow(false);
-      toggleProfile(); // Call the toggleProfile function to update the parent component's state
-    }, 300); // Duration should match the CSS transition duration
-  };
+    fetchUserBookings();
+  }, []);
 
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -178,39 +159,30 @@ const UserProfileSidebar = ({ isAdmin, toggleProfile }) => {
   };
 
   return (
-    <Offcanvas show={show} onHide={handleClose} placement="end" className={`offcanvas-transition ${fade ? 'show' : ''}`}>
-      <Offcanvas.Header closeButton>
-        <Offcanvas.Title>Profile Details</Offcanvas.Title>
-      </Offcanvas.Header>
-      <Offcanvas.Body>
-        <Card className="profile-sidebar shadow-lg p-3 mb-5 bg-white rounded">
-          <Card.Header className="bg-primary text-white">
-            <h3 className="card-title text-center">Profile Details</h3>
-          </Card.Header>
-          <Card.Body>
-            <p className="card-text"><strong>Name:</strong> {user.user_id}</p>
-            <p className="card-text"><strong>Email:</strong> {user.email}</p>
-            <p className="card-text"><strong>Phone:</strong> {user.phone_number}</p>
-            {!isAdmin && (
-              <>
-                <h3 className="card-title mt-4">Booking History</h3>
-                <div style={{ fontSize: '12px' }}>
-                  <BootstrapTable
-                    keyField='id'
-                    data={bookings}
-                    columns={columns}
-                    pagination={paginationFactory(paginationOptions)}
-                    bordered
-                    hover
-                  />
-                </div>
-              </>
-            )}
-          </Card.Body>
-        </Card>
-      </Offcanvas.Body>
-    </Offcanvas>
+    <div className="container mt-5">
+      <Card className="profile-page shadow-lg p-3 mb-5 bg-white rounded">
+        <Card.Header className="bg-primary text-white">
+          <h3 className="card-title text-center">Profile Details</h3>
+        </Card.Header>
+        <Card.Body>
+          <p className="card-text"><strong>Name:</strong> {user.user_id}</p>
+          <p className="card-text"><strong>Email:</strong> {user.email}</p>
+          <p className="card-text"><strong>Phone:</strong> {user.phone_number}</p>
+          <h3 className="card-title mt-4">Booking History</h3>
+          <div style={{ fontSize: '12px' }}>
+            <BootstrapTable
+              keyField='id'
+              data={bookings}
+              columns={columns}
+              pagination={paginationFactory(paginationOptions)}
+              bordered
+              hover
+            />
+          </div>
+        </Card.Body>
+      </Card>
+    </div>
   );
 };
 
-export default UserProfileSidebar;
+export default UserProfile;
