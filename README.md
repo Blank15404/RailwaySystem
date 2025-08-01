@@ -1,6 +1,6 @@
 # Railway System Project
 
-Welcome to the Railway System Project. This project is a comprehensive application designed to facilitate the management and booking of railway tickets. The system includes features for both admin and normal users, providing a user-friendly interface and robust functionality.
+Welcome to the RailBus. This project is a comprehensive application designed to facilitate the management and booking of railway tickets. The system includes features for both admin and normal users, providing a user-friendly interface and robust functionality.
 
 ## Table of Contents
 
@@ -9,14 +9,14 @@ Welcome to the Railway System Project. This project is a comprehensive applicati
 3. [Technology Stack](#technology-stack)
 4. [Installation](#installation)
 5. [Usage](#usage)
-6. [Video Demo](#video-demo)
+6. [Sample Photos](#sample-photos)
 7. [Contributing](#contributing)
 8. [License](#license)
 9. [Contact](#contact)
 
 ## Project Description
 
-The Railway System Project is a full-stack web application built using ReactJS, ExpressJS, and MySQL. The application provides a platform for users to register, log in, and book railway tickets. Admins have access to manage the train schedules and view booking details. The project ensures secure user authentication and authorization, with features such as encrypted passwords and role-based access control.
+The RailBus is a full-stack web application built using ReactJS, ExpressJS, and MySQL. The application provides a platform for users to register, log in, and book railway tickets. Admins have access to manage the train schedules and view booking details. The project ensures secure user authentication and authorization, with features such as encrypted passwords and role-based access control.
 
 ## Features
 
@@ -67,7 +67,7 @@ To get a local copy up and running, follow these simple steps.
 
 ## Sample Photos
 
-[![Click here]([https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg](https://drive.google.com/drive/folders/1BFO4JlF1h3BbLWBbDZ6kJ0GR87qk9QrL?usp=sharing))]
+[https://drive.google.com/drive/folders/1BFO4JlF1h3BbLWBbDZ6kJ0GR87qk9QrL?usp=sharing]
 
 ---
 
