@@ -52,8 +52,11 @@ The Railway System Project is a full-stack web application built using ReactJS, 
 To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
-- Node.js
-- npm
+- ReactJs
+- ExpressJs
+- NodeJs
+- Javascript
+- NPM
 - MySQL
 
 ### Backend Installation
@@ -62,11 +65,9 @@ To get a local copy up and running, follow these simple steps.
    git clone https://github.com/Blank15404/railway-system.git
 
 
-## Video Demo
+## Sample Photos
 
-[![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
-
-Click the image above to watch the video demo on YouTube.
+[![Click here]([https://img.youtube.com/vi/YOUR_VIDEO_ID/maxresdefault.jpg](https://drive.google.com/drive/folders/1BFO4JlF1h3BbLWBbDZ6kJ0GR87qk9QrL?usp=sharing))]
 
 ---
 
