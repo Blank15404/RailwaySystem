@@ -1,4 +1,4 @@
-# Railway System Project
+# RailBus Project
 
 Welcome to the RailBus. This project is a comprehensive application designed to facilitate the management and booking of railway tickets. The system includes features for both admin and normal users, providing a user-friendly interface and robust functionality.
 
